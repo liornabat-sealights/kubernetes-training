@@ -6,6 +6,12 @@
 ``` bash
 kind create cluster
 ```
+### Base
+
+![](../images/base.png)
+
+## Introduction
+![](../images/intro.png)
 
 
 ## Deploying a pod
@@ -44,11 +50,15 @@ kubectl apply -f ./service/create-service.yaml
 ```
 ![](../images/node-port-service.png)
 
+## Networking
+
+![](../images/networking.png)
+
 ## Deploy a Deployment
 ``` bash
 kubectl apply -f ./deployment/client-depl.yaml
 kubectl apply -f ./deployment/mongo-depl.yaml
-kubectl apply -f ./deployment/serve-depl.yaml
+kubectl apply -f ./deployment/server-depl.yaml
 ```
 
 
