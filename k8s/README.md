@@ -4,8 +4,14 @@
 ## Creating a cluster
 
 ``` bash
-kind create cluster
+kind create cluster --config=./k8s/init/cluster.yaml
 ```
+### Install Ingress Controller
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+```
+
+``` bash
 ### Base
 
 ![](../images/base.png)
@@ -54,13 +60,16 @@ kubectl apply -f ./service/create-service.yaml
 
 ![](../images/networking.png)
 
+## Deploy an Ingress
+
+``` bash
+kubectl apply -f ./ingress/ingress.yaml
+```
+
 ## Deploy a Deployment
 ``` bash
 kubectl apply -f ./deployment/client-depl.yaml
 kubectl apply -f ./deployment/mongo-depl.yaml
 kubectl apply -f ./deployment/server-depl.yaml
 ```
-
-
-## Networking
 

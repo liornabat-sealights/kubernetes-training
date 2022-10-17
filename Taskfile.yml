@@ -1,0 +1,15 @@
+version: '3'
+
+
+tasks:
+  init:
+    cmds:
+      - kind create cluster --config=./k8s/init/cluster.yaml
+      - kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+  final:
+    cmds:
+      - kubectl apply -f ./k8s/final/client-depl.yaml
+      - kubectl apply -f ./k8s/final/server-depl.yaml
+      - kubectl apply -f ./k8s/final/ingress.yaml
+      - kubectl apply -f ./k8s/final/mongo-depl.yaml
+      - kubectl apply -f ./k8s/final/mongo-secret.yaml
